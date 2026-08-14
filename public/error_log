@@ -1,0 +1,11 @@
+[23-Sep-2025 10:30:27 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.0.2". You are running 7.4.33. in /home/caprockr/public_html/vendor/composer/platform_check.php on line 24
+[03-Feb-2026 15:41:05 UTC] PHP Warning:  require(/home/caprockr/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/caprockr/public_html/public/index.php on line 34
+[03-Feb-2026 15:41:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/caprockr/public_html/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/caprockr/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/caprockr/public_html/public/index.php on line 34
+[03-Feb-2026 15:41:07 UTC] PHP Warning:  require(/home/caprockr/public_html/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/caprockr/public_html/public/index.php on line 34
+[03-Feb-2026 15:41:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/caprockr/public_html/public/../vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/caprockr/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/caprockr/public_html/public/index.php on line 34
