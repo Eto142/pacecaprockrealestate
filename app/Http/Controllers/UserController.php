@@ -205,6 +205,10 @@ class UserController extends Controller
          {
                    return view('dashboard.realEstatePage');
          }
+         public function realEstateStockPage()
+         {
+                   return view('dashboard.realEstateStockPage');
+         }
                   public function rentalPage()
          {
                    return view('dashboard.rental');

@@ -341,6 +341,15 @@ $(document).on('keyup',"#field7",function(){
                         <p>Invest In Real Estate</p>
                     </a>
                 </li>
+
+                  <li class="nav-item">
+                    <a href="{{route('real-estate-stock')}}">
+                        <i class="fa fa-signal " aria-hidden="true"></i>
+                        <p> Invest in real estate a stock to avoid little tax</p>
+                    </a>
+                </li>
+
+                
                 <li class="nav-item">
                     <a href="{{route('investment-history')}}">
                         <i class="fa fa-signal " aria-hidden="true"></i>

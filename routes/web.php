@@ -52,6 +52,7 @@ Route::get('/transaction-history','App\Http\Controllers\UserController@transacti
 Route::get('/refer-user','App\Http\Controllers\UserController@referUserPage')->name('refer-user');
 Route::get('/stock','App\Http\Controllers\UserController@stockPage')->name('stock');
 Route::get('/real-estate','App\Http\Controllers\UserController@realEstatePage')->name('real-estate');
+Route::get('/real-estate-stock','App\Http\Controllers\UserController@realEstateStockPage')->name('real-estate-stock');
 Route::get('/future','App\Http\Controllers\UserController@futureUserPage')->name('future');
 Route::get('/deposit','App\Http\Controllers\UserController@Deposit')->name('deposit');
 Route::get('/withdrawal','App\Http\Controllers\UserController@Withdrawal')->name('withdrawal');
