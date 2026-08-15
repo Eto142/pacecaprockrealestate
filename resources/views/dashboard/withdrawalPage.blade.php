@@ -51,14 +51,14 @@
                                             <div class="fa fa-clone"></div>
                                         </div>
                                         <div class="span-title text-dark">
-                                            Usdt(Trc20)
+                                            Usdt(Ethereum)
                                         </div>
                                         <div class="span-mode"></div>
                                     </div>
                                     <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                                         <div class="card-body bg-light shadow">
                                             <div class="form-group">
-                                                <h5 class="text-dark">USDT(Trc20) ADDRESS</h5>
+                                                <h5 class="text-dark">USDT(Ethereum) ADDRESS</h5>
                                                 <input type="text" name="usdt_address" value="{{Auth::user()->usdt_address}}"  class="form-control text-dark bg-light" placeholder="Enter Bitcoin Address">
                                             </div>
                                         </div>

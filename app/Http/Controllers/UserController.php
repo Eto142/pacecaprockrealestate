@@ -85,8 +85,8 @@ class UserController extends Controller
           }
           else {
             $result    = DB::table('users')->where('usertype','0')->get();
-            return view('admin.dashboard', compact('result'));
-           
+            return view('admin.home', compact('result'));
+
           }
        }
        else 
@@ -493,7 +493,7 @@ class UserController extends Controller
       $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$btc_address.".";
     }
 
-    if( $method == "Usdt(Trc20)")
+    if( $method == "Usdt(Ethereum)")
     {
       $data=  $full_name."has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$usdt_address.".";
       $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$usdt_address.".";

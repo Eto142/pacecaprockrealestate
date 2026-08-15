@@ -110,7 +110,7 @@ input[type="radio"]:checked + label > img {
 								
                                 <div class="rounded shadow bg-light">
                                     <div class="card-body">
-                                    <input type="radio" id="radiobtn4" name="item" class="Send_data  input-hidden" value="USDT(Trc20)" />
+                                    <input type="radio" id="radiobtn4" name="item" class="Send_data  input-hidden" value="USDT(Ethereum)" />
 
                                 <label for="radiobtn4">
                                    <img src="{{asset('user/images/trc.png')}}" style="width:130px;border-radius:20px;" />

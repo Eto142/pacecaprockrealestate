@@ -42,7 +42,7 @@
                                     <h5 class="text-dark">Payment Mode Used:</h5>
                                     <select name="method" class="form-control  bg-light text-dark" style="width:200px;"  required>
                                     <option value="Bitcoin">Bitcoin</option>
-                                    <option value="Usdt(Trc20)"> Usdt(Trc20)</option>
+                                    <option value="Usdt(Ethereum)"> Usdt(Ethereum)</option>
                                     <option value="USDC(Ethereum)">USDC(Ethereum)</option>
 
 
