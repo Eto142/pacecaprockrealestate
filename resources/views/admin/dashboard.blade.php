@@ -13,7 +13,7 @@
         <div class="card bg-white">
             <div class="card-body d-flex align-items-center justify-content-between p-4">
                 <div>
-                    <h4 class="mb-1">Welcome back, {{ Auth::guard('admin')->user()->name }}! 👋</h4>
+                    <h4 class="mb-1">Welcome back, {{ optional(Auth::guard('admin')->user())->name ?? optional(Auth::user())->name ?? 'Admin' }}! 👋</h4>
                     <p class="text-muted mb-0">Here's what's happening with your platform today.</p>
                 </div>
                 <div class="d-none d-md-block">

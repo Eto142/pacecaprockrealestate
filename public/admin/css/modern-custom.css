@@ -251,6 +251,7 @@ body {
 .content-wrapper {
     padding: 2.5rem;
     width: 100%;
+    min-width: 0;
 }
 
 /* Ensure navbar respects sidebar width */

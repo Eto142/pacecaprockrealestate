@@ -84,9 +84,7 @@ class UserController extends Controller
             return view('dashboard.home', $data);
           }
           else {
-            $result    = DB::table('users')->where('usertype','0')->get();
-            return view('admin.home', compact('result'));
-
+            return view('admin.dashboard');
           }
        }
        else 

@@ -7,7 +7,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/home') }}">
+            <a class="nav-link" href="{{url('/users') }}">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Users</span>
             </a>
@@ -31,7 +31,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/home')}}">
+            <a class="nav-link" href="{{url('/users')}}">
               <i class="mdi mdi-view-headline menu-icon"></i>
               <span class="menu-title">Total Users</span>
             </a>
