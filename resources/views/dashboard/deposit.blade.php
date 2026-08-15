@@ -116,8 +116,8 @@ input[type="radio"]:checked + label > img {
                                    <img src="{{asset('user/images/trc.png')}}" style="width:130px;border-radius:20px;" />
                                    <br><br> 
                                <span class="text-dark">
-                               USDT(Trc20) 
-                                </span> 
+                               USDT Ethereum
+                                </span>
                                 </label>
                                 </div>
                                 </div>

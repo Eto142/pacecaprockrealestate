@@ -15,10 +15,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@caprock.com',
-            'password' => Hash::make('password'),
-        ]);
+        Admin::updateOrCreate(
+            ['email' => 'support@caprockrealestates.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('12345678'),
+            ]
+        );
     }
 }
