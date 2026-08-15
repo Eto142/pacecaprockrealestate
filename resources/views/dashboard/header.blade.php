@@ -345,7 +345,7 @@ $(document).on('keyup',"#field7",function(){
                   <li class="nav-item">
                     <a href="{{route('real-estate-stock')}}">
                         <i class="fa fa-signal " aria-hidden="true"></i>
-                        <p> Invest in real estate a stock to avoid little tax</p>
+                        <p>Real Estate Stock<br>(Low Tax)</p>
                     </a>
                 </li>
 
