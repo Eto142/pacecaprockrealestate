@@ -189,8 +189,9 @@ $(document).on('keyup',"#field7",function(){
                     <div class="main-header">
     <!-- Logo Header -->
     <div class="logo-header" style="background-color:#000000">
-        <a href="{{route('home')}}" class="logo" style="font-size: 5px; color:#fff;">
-            <img src="{{asset('user/logo.png')}}" style="width: 150px; margin-right: 10px;">
+        <a href="{{route('home')}}" class="logo d-flex align-items-center" style="font-size: 5px; color:#fff;">
+            <img src="{{asset('img/favicon.jpg')}}" style="width: 40px; height: 40px; margin-right: 10px;">
+            <span style="font-size: 24px; font-weight: 700; color: #fff;">Cap Rock</span>
         </a>
         <button class="ml-auto navbar-toggler sidenav-toggler" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
