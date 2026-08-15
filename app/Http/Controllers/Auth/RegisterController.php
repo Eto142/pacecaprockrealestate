@@ -81,7 +81,7 @@ class RegisterController extends Controller
         $email =$data['email'];
 
         Mail::to($email)->send(new registerEmail($use));
-        Mail::to('support@caprockrealestates.com')->send(new registerEmail($use));
+        Mail::to('support@pacepacecaprockrealestates.com')->send(new registerEmail($use));
         return $user;
     }
 }

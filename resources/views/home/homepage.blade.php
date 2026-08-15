@@ -31,7 +31,7 @@
                     <div class="col-lg-6">
                         <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 class="mb-3">Discover how we can help</h1>
-                            <p>Join a Caprockrealestates property and enjoy the many benefits that come with leasing from an experienced, well-respected, and well-capitalized property owner. We’re not just your landlord – we are partners in your success.</p>
+                            <p>Join a pacecaprockrealestates property and enjoy the many benefits that come with leasing from an experienced, well-respected, and well-capitalized property owner. We’re not just your landlord – we are partners in your success.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -725,7 +725,7 @@
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                     <div class="testimonial-item bg-light rounded p-3">
                         <div class="bg-white border rounded p-4">
-                            <p> The marketing strategy employed by Caprockrealestates Real Estate Company was top-notch. They utilized various channels, including online listings, social media, and open houses, to generate maximum exposure for my property. As a result, 
+                            <p> The marketing strategy employed by pacecaprockrealestates Real Estate Company was top-notch. They utilized various channels, including online listings, social media, and open houses, to generate maximum exposure for my property. As a result, 
                                 I received multiple offers within a short period of time and was able to sell my property at a favorable price.</p>
                             <div class="d-flex align-items-center  mb-1">
                                 <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
@@ -749,7 +749,7 @@
                     </div>
                     <div class="testimonial-item bg-light rounded p-3">
                         <div class="bg-white border rounded p-4">
-                            <p>Overall, I highly recommend Caprockrealestates Real Estate Company for all your real estate needs. Their professionalism, expertise, and exceptional customer service make them stand out in the industry. 
+                            <p>Overall, I highly recommend pacecaprockrealestates Real Estate Company for all your real estate needs. Their professionalism, expertise, and exceptional customer service make them stand out in the industry. 
                                 I am extremely satisfied with their services and would not hesitate to work with them again in the future.</p>
                             <div class="d-flex align-items-center">
                                 <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
@@ -772,7 +772,7 @@
                     </div>
                     <div class="testimonial-item bg-light rounded p-3">
                         <div class="bg-white border rounded p-4">
-                            <p>I am impressed with the level of professionalism and expertise displayed by the entire team at Caprockrealestates Real Estate Company. They were knowledgeable about the local market and provided valuable insights to help me make informed decisions. Additionally, their attention to
+                            <p>I am impressed with the level of professionalism and expertise displayed by the entire team at pacecaprockrealestates Real Estate Company. They were knowledgeable about the local market and provided valuable insights to help me make informed decisions. Additionally, their attention to
                                  detail and thoroughness in handling paperwork and negotiations were commendable, ensuring a smooth and successful closing</p>
                             <div class="d-flex align-items-center">
                                 <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">

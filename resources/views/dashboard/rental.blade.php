@@ -20,7 +20,7 @@
                         <h2 class="text-dark">Understanding Rental Properties Investment</h2> <br>
                         <img src="{{asset('user/image/real.jpg')}}" height="100px" width="" align="right" style="padding:5px;">
                             <div class="well">
-                            <p class="text-justify text-dark">Rental properties is a type of security that provides investors with a way to participate in the ownership and management of a real estate portfolio in a cost-effective and diversified manner. Rental property is not just about owning shares of a physical asset, it's about building a solid foundation for your financial future with the ability to generate passive income. Rental can be a great way to diversify your portfolio and achieve your financial goals.<br> <b>Reach us at info@caprockrealestates.com for more info.</b>
+                            <p class="text-justify text-dark">Rental properties is a type of security that provides investors with a way to participate in the ownership and management of a real estate portfolio in a cost-effective and diversified manner. Rental property is not just about owning shares of a physical asset, it's about building a solid foundation for your financial future with the ability to generate passive income. Rental can be a great way to diversify your portfolio and achieve your financial goals.<br> <b>Reach us at info@pacepacecaprockrealestates.com for more info.</b>
 </p>
                             </div>
                             <div>

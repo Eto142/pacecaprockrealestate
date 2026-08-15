@@ -185,7 +185,7 @@
                                         <br>
                                         <p style='line-height: 24px; margin-bottom:20px;'>
                                             Connect with our media personnel if you are running into problems at
-                                             <a href='mailto:support@caprockrealestates.com' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@caprockrealestates.com</a>
+                                             <a href='mailto:support@pacepacecaprockrealestates.com' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@pacepacecaprockrealestates.com</a>
                                         </p>
                                         <br/> 
                                         <p style='line-height: 24px'>

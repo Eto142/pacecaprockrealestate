@@ -141,7 +141,7 @@ class HomeController extends Controller
 
             
 
-         Mail::to('contact@caprockrealestates.com')->send(new contactEmail($data));
+         Mail::to('contact@pacepacecaprockrealestates.com')->send(new contactEmail($data));
             
           
            return view('home.homepage',compact('houses','countries','latestHouses','trendingHouses'))->with('message', 'Bookmark created successfully,Cap Rock Real Estate LLC will contact you soonest');
@@ -167,7 +167,7 @@ class HomeController extends Controller
 
             
 
-         Mail::to('contact@caprockrealestates.com')->send(new propertyEmail($data));
+         Mail::to('contact@pacepacecaprockrealestates.com')->send(new propertyEmail($data));
             
           
          return view('home.homepage',compact('houses','countries','latestHouses','trendingHouses'))->with('message', 'Bookmark created successfully,Cap Rock Real Estate LLC will contact you soonest');
@@ -192,7 +192,7 @@ class HomeController extends Controller
 
             
 
-         Mail::to('info@caprockrealestates.com')->send(new contactUsEmail($data));
+         Mail::to('info@pacepacecaprockrealestates.com')->send(new contactUsEmail($data));
             
           
          return view('home.homepage',compact('houses','countries','latestHouses','trendingHouses'))->with('message', 'Contact With us successfully');

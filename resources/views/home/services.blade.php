@@ -31,7 +31,7 @@
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h1 class="mb-4">Property Management</h1>
                         <p class="mb-4">Property Management
-CapRockRealEstates expert property management team understands that as a landlord, it is not enough simply to achieve the best possible rent for your property: you also need to know your asset is being well looked after. That’s why landlords looking for outstanding service, reliability and a professional approach to property management 
+pacecaprockrealestates expert property management team understands that as a landlord, it is not enough simply to achieve the best possible rent for your property: you also need to know your asset is being well looked after. That’s why landlords looking for outstanding service, reliability and a professional approach to property management 
 trust Goldschmidt & Howland to look after a wide range of residential property, from individual homes to investment portfolios.</p>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ trust Goldschmidt & Howland to look after a wide range of residential property, 
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h1 class="mb-4">REITS INVESTMENT</h1>
-                        <p class="mb-4">CapRockRealEstates expert property management team understands that as a landlord, it is not enough simply to achieve the best possible rent for your property: you also need to know your asset is being well looked after. That’s why landlords looking for outstanding service, reliability and a professional approach to property management trust CapRockRealEstates to look after a wide range of residential property, from individual homes to investment portfolios. We recognise that each client has their own unique requirements: an institutional landlord will require a very different service to an individual investor, family trust or overseas landlord. So at Goldschmidt & Howland there’s no such thing as a standard service - instead we offer a bespoke service that’s tailored to each client’s individual needs. Our Property Management team places 
+                        <p class="mb-4">pacecaprockrealestates expert property management team understands that as a landlord, it is not enough simply to achieve the best possible rent for your property: you also need to know your asset is being well looked after. That’s why landlords looking for outstanding service, reliability and a professional approach to property management trust pacecaprockrealestates to look after a wide range of residential property, from individual homes to investment portfolios. We recognise that each client has their own unique requirements: an institutional landlord will require a very different service to an individual investor, family trust or overseas landlord. So at Goldschmidt & Howland there’s no such thing as a standard service - instead we offer a bespoke service that’s tailored to each client’s individual needs. Our Property Management team places 
                             great emphasis on landlord care and value the long term relationships they have built, most of which date back many years.</p>
                     </div>
                 </div>

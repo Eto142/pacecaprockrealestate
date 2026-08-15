@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet'>
     <!--<![endif]-->
 
-    <title>caprockrealestates</title>
+    <title>pacecaprockrealestates</title>
 
     <style type='text/css'>
         body {
@@ -155,7 +155,7 @@
        <tr>
              <td align='center' height='70' style='height:70px;'>
         <a href='' style='display: block; border-style: none !important; border: 0 !important;'>
-        <img width='100' border='0' style='display: block; width: 300px;' src="https://caprockrealestates.com/user/logo.png"/></a>
+        <img width='100' border='0' style='display: block; width: 300px;' src="https://pacepacecaprockrealestates.com/user/logo.png"/></a>
              </td>
          </tr>
         </table>
@@ -188,12 +188,12 @@
                                     
                                         <p style='line-height: 24px; margin-bottom:20px;'>
                                             Connect with our media personnel if you are running into problems at
-                                             <a href='mailto:support@caprockrealestates.com' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@caprockrealestates.com</a>
+                                             <a href='mailto:support@pacepacecaprockrealestates.com' style='color: blue; font-size: 20px; font-family: 'Hind Siliguri', Calibri, Sans-serif; font-weight: 400;'>support@pacepacecaprockrealestates.com</a>
                                         </p>
                                         <br/> 
                                         <p style='line-height: 24px'>
                                             Kind Regards,</br>
-                                            caprockrealestates
+                                            pacecaprockrealestates
                                         </p>
 
                                     </td>

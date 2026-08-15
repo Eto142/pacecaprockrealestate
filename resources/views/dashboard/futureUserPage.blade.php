@@ -21,7 +21,7 @@
                         <img src="{{asset('user/image/bond.jpg')}}" height="100px" width="" align="right" style="padding:5px;">
                             <div clasS="well">
                             <p class="text-justify text-dark">Bond investment is a type of investment where an investor loans money to a borrower, typically a firm or a government. The borrower agrees to repay the investor a fixed rate of interest over a predetermined period of time. Bond investments are viewed as low-risk investments and act as a hedge against inflation. They generally produce greater returns than time deposits, savings accounts, and money market funds. Bonds are used by companies, municipalities, states, and sovereign governments to finance projects and operations.
-                                <br> <b>Reach us at info@caprockrealestates.com for more info.</b>
+                                <br> <b>Reach us at info@pacepacecaprockrealestates.com for more info.</b>
 </p>
                             </div>
                             <div>

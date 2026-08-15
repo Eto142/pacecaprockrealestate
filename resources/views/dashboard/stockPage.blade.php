@@ -24,7 +24,7 @@
                             Stocks are one of the most popular investments available and an attractive option for those looking to grow their money over time. When you buy stock, you become an owner of a company and can benefit from the company’s success. As an investor in the stock market, you are entitled to a share of the company’s profits, and the value of your shares can increase if the company’s stock price rises. You can also generate income from stocks through dividends, which are payments made to shareholders in exchange for owning a share of the company’s stock.
 Some of our Trading Instruments: BTC, ETH, BNB, CAD, XRP, NEX, XDC, XRM, Apple (AAPL), Tesla (TSLA), Amazon (AMZN), AMD (AMD), Facebook (FB), Netflix (NFLX), #CSCO, #GOOG, #ALP
 
-                            <br> <b>Reach us at info@caprockrealestates.com for more info.</b>
+                            <br> <b>Reach us at info@pacepacecaprockrealestates.com for more info.</b>
                           </p>
                             </div>
                             <div>

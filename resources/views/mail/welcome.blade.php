@@ -155,7 +155,7 @@
                         <tr>
                             <td align='center' height='70' style='height:70px;'>
                                 <a href='' style='display: block; border-style: none !important; border: 0 !important;'>
-                                <img width='100' border='0' style='display: block; width: 300px;' src="https://caprockrealestates.com/user/logo.png"  />
+                                <img width='100' border='0' style='display: block; width: 300px;' src="https://pacepacecaprockrealestates.com/user/logo.png"  />
                             </a>
                             </td>
                         </tr>

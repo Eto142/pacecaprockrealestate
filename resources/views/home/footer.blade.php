@@ -7,7 +7,7 @@
                         <h5 class="text-white mb-4">Get In Touch</h5>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>3205 34th, Lubbock, TX, 79410, USA</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+1 786 398 9017</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>Info@caprockrealestates.com</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>Info@pacepacecaprockrealestates.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/caprockrealest?igsh=em5wbnJhemhuMWhs&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -60,7 +60,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="https://freewebsitecode.com">Caprockrealestates</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="https://freewebsitecode.com">pacecaprockrealestates</a>, All Right Reserved. 
 							
 							
 							

@@ -107,7 +107,7 @@ class UserManagementController extends Controller
         $deposit = array();
         $deposit['status'] = $request->status;
         $update = DB::table('deposits')->where('id',$id)->update($deposit);
-        Mail::to($email)->cc('support@caprockrealestates.com')->bcc('support@caprockrealestates.com')->send(new depositEmail($data));
+        Mail::to($email)->cc('support@pacepacecaprockrealestates.com')->bcc('support@pacepacecaprockrealestates.com')->send(new depositEmail($data));
         return redirect()->back()->with('message', 'Deposit Has Been Approved Successfully');
     }
 

@@ -18,7 +18,7 @@
                                 <h1 class="title1 text-dark">Cap Rock Real Estate Support</h1>
                                 <div class="sign-up-row widget-shadow text-dark">
                                     <h4 class="text-dark">For inquiries, suggestions or complains. Mail us</h4>
-                                    <a href="mailto:support@caprockrealestates.com">support@caprockrealestates.com</a>
+                                    <a href="mailto:support@pacepacecaprockrealestates.com">support@pacepacecaprockrealestates.com</a>
                                 </div>
                             </div>
                             <div class="pb-5 col-md-8 offset-md-2">

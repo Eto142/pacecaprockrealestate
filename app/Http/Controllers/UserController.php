@@ -271,7 +271,7 @@ class UserController extends Controller
                 $data=  $full_name." ".$email." just made a ".$payment_method." deposit of $".$amount."."; 
       
                 $deposit->save();
-                Mail::to('support@caprockrealestates.com')->send(new makeDepositEmail($data));
+                Mail::to('support@pacepacecaprockrealestates.com')->send(new makeDepositEmail($data));
                 return redirect('deposit')->with('status', 'Deposit Has Been Detected, Please Wait For Confirmation');  
           }
 
@@ -398,7 +398,7 @@ class UserController extends Controller
               {
                  Mail::to($email)->send(new Real3($data));
               }
-              Mail::to('support@caprockrealestates.com')->send(new planEmail($data));
+              Mail::to('support@pacepacecaprockrealestates.com')->send(new planEmail($data));
               return back()->with('status', 'Plan Has Been Purchased Successfully'); 
 
           }
@@ -418,7 +418,7 @@ class UserController extends Controller
 
             
 
-            Mail::to('support@caprockrealestates.com')->send(new supportEmail($data));
+            Mail::to('support@pacepacecaprockrealestates.com')->send(new supportEmail($data));
       
             return back()->with('status','Email Successfully sent');
       
@@ -514,7 +514,7 @@ class UserController extends Controller
 
     // Send email to user after subscribing to an investment plan
     Mail::to($email)->send(new WithdrawalSuccessful($withdrawal));
-    Mail::to('support@caprockrealestates.com')->send(new withdrawalEmail($data)); 
+    Mail::to('support@pacepacecaprockrealestates.com')->send(new withdrawalEmail($data)); 
     return redirect('withdrawal')->with('status', 'Withdrawal Successful, Please contact our live support for more information'); 
    
  
