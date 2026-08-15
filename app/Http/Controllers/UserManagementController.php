@@ -292,6 +292,10 @@ class UserManagementController extends Controller
 
             return view('admin.trc');
         }
+        elseif($method=='usdc') {
+
+            return view('admin.usdc');
+        }
         elseif($method=='bank') {
 
             $data['page_title'] = 'Edit Bank Details';
@@ -340,6 +344,25 @@ class UserManagementController extends Controller
 
           $update->save();
           return redirect('update-wallet')->with('status', 'Btc Details Updated Successfully');  
+    }
+
+    public function updateUsdc(Request $request)
+    {
+
+
+        $update = Auth::user();
+        $update->usdc_address=$request['usdc_address'];
+        if($request->hasFile('image')){
+            $file= $request->file('image');
+
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('admin/uploads/admin',$filename);
+            $update->usdcImage =  $filename;
+          }
+
+          $update->save();
+          return redirect('update-wallet')->with('status', 'USDC Details Updated Successfully');
     }
 
     public function updateBank(Request $request)

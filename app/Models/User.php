@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'btc_address',
         'usdt_address',
+        'usdc_address',
         'date_of_birth',
         'phone_number',
         'country',

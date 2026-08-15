@@ -97,6 +97,7 @@ Route::get('/update-wallet','App\Http\Controllers\UserManagementController@updat
 Route::post('/choose-wallet','App\Http\Controllers\UserManagementController@chooseWallet')->name('choose-wallet');
 Route::post('/update-trc','App\Http\Controllers\UserManagementController@updateTrc')->name('update-trc');
 Route::post('/update-btc','App\Http\Controllers\UserManagementController@updateBtc')->name('update-btc');
+Route::post('/update-usdc','App\Http\Controllers\UserManagementController@updateUsdc')->name('update-usdc');
 Route::post('/update-eth','App\Http\Controllers\UserManagementController@updateEth')->name('update-eth');
 Route::post('/update-bank','App\Http\Controllers\UserManagementController@updateBank')->name('update-bank');
 Route::get('/send-mail','App\Http\Controllers\UserManagementController@sendTestMail');

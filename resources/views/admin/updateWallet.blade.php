@@ -21,7 +21,8 @@
                                 <option value="bitcoin">Bitcoin(BTC)</option>
                                 <option value="eth">Ethereum</option>
                                 <option value="trc">Trc</option>
-                                <option value="bank">BANK</option>                            
+                                <option value="usdc">USDC(Ethereum)</option>
+                                <option value="bank">BANK</option>
                               </select>
                     </div>
                     <button type="submit" class="btn btn-primary me-2">Update</button>

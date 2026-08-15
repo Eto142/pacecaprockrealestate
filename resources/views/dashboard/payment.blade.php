@@ -33,6 +33,10 @@
                  @foreach($payment  as $payments)
               <img src="{{asset('admin/uploads/admin/'.$payments->trcImage)}}"  style ="width:300px;">
                  @endforeach
+                 @elseif($item=='USDC(Ethereum)')
+                 @foreach($payment  as $payments)
+              <img src="{{asset('admin/uploads/admin/'.$payments->usdcImage)}}"  style ="width:300px;">
+                 @endforeach
                @endif
                     <br>
                     <br>
@@ -41,9 +45,14 @@
                     <input type="text"  id="myInput1" class="form-control" style="color: black;" class="bg-light text-dark" value="{{$payments->btc_address}}" readonly>
                     @endforeach
                  @elseif($item=='USDT(Trc20)')
-                
+
                     @foreach($payment  as $payments)
                  <input type="text"  id="myInput1" class="form-control" style="color: black;" class="bg-light text-dark" value="{{$payments->usdt_address}}" readonly>
+                 @endforeach
+                 @elseif($item=='USDC(Ethereum)')
+
+                    @foreach($payment  as $payments)
+                 <input type="text"  id="myInput1" class="form-control" style="color: black;" class="bg-light text-dark" value="{{$payments->usdc_address}}" readonly>
                  @endforeach
                @endif
         

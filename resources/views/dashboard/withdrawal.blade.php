@@ -43,7 +43,8 @@
                                     <select name="method" class="form-control  bg-light text-dark" style="width:200px;"  required>
                                     <option value="Bitcoin">Bitcoin</option>
                                     <option value="Usdt(Trc20)"> Usdt(Trc20)</option>
-                                  
+                                    <option value="USDC(Ethereum)">USDC(Ethereum)</option>
+
 
                                     </select>
                                           </div>

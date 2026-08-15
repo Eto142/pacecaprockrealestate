@@ -69,8 +69,8 @@ input[type="radio"]:checked + label > img {
 														<h5 class="card-title text-dark">Choose Payment Method from the list below</h5>
 													</div>
 
-													<div class="mb-2 col-md-6">
-								
+													{{-- <div class="mb-2 col-md-6">
+
 													<div class="rounded shadow bg-light">
 														<div class="card-body">
                                                         <input type="radio" id="radiobtn3" name="item" class="Send_data  input-hidden" value="Bank" />
@@ -80,11 +80,11 @@ input[type="radio"]:checked + label > img {
                                                        <br><br>
                                                    <span class="text-dark">
                                                       Bank Transfer
-                                                    </span> 
+                                                    </span>
                                                     </label>
 													</div>
 													</div>
-													</div>
+													</div> --}}
 
 
                                                     <div class="mb-2 col-md-6">
@@ -118,6 +118,24 @@ input[type="radio"]:checked + label > img {
                                <span class="text-dark">
                                USDT(Trc20) 
                                 </span> 
+                                </label>
+                                </div>
+                                </div>
+                                </div>
+
+
+                                                    <div class="mb-2 col-md-6">
+
+                                <div class="rounded shadow bg-light">
+                                    <div class="card-body">
+                                    <input type="radio" id="radiobtn5" name="item" class="Send_data  input-hidden" value="USDC(Ethereum)" />
+
+                                <label for="radiobtn5">
+                                   <img src="{{asset('usdc.webp')}}" style="width:130px;border-radius:20px;" />
+                                   <br><br>
+                               <span class="text-dark">
+                               USDC(Ethereum)
+                                </span>
                                 </label>
                                 </div>
                                 </div>

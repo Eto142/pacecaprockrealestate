@@ -20,8 +20,7 @@
                         <h2 class="text-dark">Understanding Real Estate Investment</h2> <br>
                         <img src="{{asset('user/image/real.jpg')}}" height="100px" width="" align="right" style="padding:5px;">
                             <div class="well">
-                            <p class="text-justify text-dark">Real estate investment trusts (REITs) are basically dividend-paying stocks we deal on. We  own and manage real estate portfolios such as residential and commercial properties, mortgages, and various other related assets.(REIT) is best for investors who want portfolio exposure to real estate without a traditional real estate transaction. REITs are a type of security that provides investors with a way to participate in the ownership and management of a real estate portfolio in a cost-effective and diversified manner. REITs are a solid investment for stock market investors who desire regular income. 
-Some of our REIT INVESTMENTS: ACC, IRM, RUSSEL 1000, XLRE, CCI, VNO, NLY, NRZ, AIRC.<br> <b>Reach us at info@caprockrealestates.com for more info.</b>
+                            <p class="text-justify text-dark">Real estate stocks can be a smart way for beginners to gain exposure to real estate, potentially grow their funds, and benefit from certain tax advantages. If you’re new to real estate investing, consider learning about REITs and real-estate stocks before investing. Always check U.S. tax rules or consult a tax professional to understand what legally applies to you. Real estate investment trusts (REITs) are basically dividend-paying stocks we deal on. We own and manage real estate portfolios such as residential and commercial properties, mortgages, and various other related assets.(REIT) is best for investors who want portfolio exposure to real estate without a traditional real estate transaction. REITs are a type of security that provides investors with a way to participate in the ownership and management of a real estate portfolio in a cost-effective and diversified manner. REITs are a solid investment for stock market investors who desire regular income. Some of our REIT INVESTMENTS: ACC, IRM, RUSSEL 1000, XLRE, CCI, VNO, NLY, NRZ, AIRC.<br> <b>Reach us at info@caprockrealestates.com for more info.</b>
 </p>
                             </div>
                             <div>
@@ -49,21 +48,21 @@ Some of our REIT INVESTMENTS: ACC, IRM, RUSSEL 1000, XLRE, CCI, VNO, NLY, NRZ, A
                                
                                 <h2 style="color: blue;">REIT - I</h2>
                                 <!-- Price -->
-                                <h4 style="color: blueviolet;">Pays 1.8% daily</h4>
+                                <h4 style="color: blueviolet;">Pays 13.5% daily</h4>
                                 <!-- Features -->
                                 <div class="pricing-features">
                                     <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$10,000.00</span></div>
-                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$100,000.00</span></div>
+                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$1,000,000.00</span></div>
                                 </div> <br>
                                 <!-- Button -->
                                 <div class="">
                                 <form action="{{url('/buy-plan')}}" method="post">
                                         @csrf
                                     <input type="hidden" value="REIT - I" name="plan_name" >
-                                    <input type="hidden" value="0.018" name="plan_percent">
-                                     <input type="hidden" value="1.8%" name="plan_percentage">
+                                    <input type="hidden" value="0.135" name="plan_percent">
+                                     <input type="hidden" value="13.5%" name="plan_percentage">
                                     <h5 class="text-dark">Amount to invest:</h5>
-                                    <input type="number" min="10000" max="100000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field1"> <br>
+                                    <input type="number" min="10000" max="1000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field1"> <br>
                                           <select class="form-control text-dark bg-light" id="field2" name="plan_duration"  style="display: none;" required>
                                                         <option value="none" selected>Select Duration of your Real Estate investment</option>
                                                         <option value="1 month">1 month</option>
@@ -87,21 +86,21 @@ Some of our REIT INVESTMENTS: ACC, IRM, RUSSEL 1000, XLRE, CCI, VNO, NLY, NRZ, A
                                
                                 <h2 style="color: blue;">REIT - II</h2>
                                 <!-- Price -->
-                                <h4 style="color: blueviolet;">Pays 3.9% daily</h4>
+                                <h4 style="color: blueviolet;">Pays 21.8% daily</h4>
                                 <!-- Features -->
                                 <div class="pricing-features">
-                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$101,000.00</span></div>
-                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$1,000,000.00</span></div>
+                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$1,010,000.00</span></div>
+                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$10,000,000.00</span></div>
                                 </div> <br>
                                 <!-- Button -->
                                 <div class="">
                                 <form action="{{url('/buy-plan')}}" method="post">
                                         @csrf
                                     <input type="hidden" value="REIT - II" name="plan_name" >
-                                    <input type="hidden" value="0.039" name="plan_percent">
-                                     <input type="hidden" value="3.9%" name="plan_percentage">
+                                    <input type="hidden" value="0.218" name="plan_percent">
+                                     <input type="hidden" value="21.8%" name="plan_percentage">
                                         <h5 class="text-dark">Amount to invest:</h5>
-                                    <input type="number" min="101000" max="1000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field3"> <br>
+                                    <input type="number" min="1010000" max="10000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field3"> <br>
                                           <select class="form-control text-dark bg-light" id="field4" name="plan_duration"  style="display: none;" required>
                                                         <option value="none" selected>Select Duration of your Real Estate investment</option>
                                                         <option value="1 month">1 month</option>
@@ -129,21 +128,21 @@ Some of our REIT INVESTMENTS: ACC, IRM, RUSSEL 1000, XLRE, CCI, VNO, NLY, NRZ, A
                                
                                 <h2 style="color: blue;">REIT - III</h2>
                                 <!-- Price -->
-                                <h4 style="color: blueviolet;">Pays 5.7% daily</h4>
+                                <h4 style="color: blueviolet;">Pays 39.9% daily</h4>
                                 <!-- Features -->
                                 <div class="pricing-features">
-                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$1,010,000.00</span></div>
-                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$10,000,000.00</span></div>
+                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$15,000,000.00</span></div>
+                                    <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$50,000,000.00</span></div>
                                 </div> <br>
                                 <!-- Button -->
                                 <div class="">
                                 <form action="{{url('/buy-plan')}}" method="post">
                                         @csrf
                                     <input type="hidden" value="REIT - III" name="plan_name" >
-                                    <input type="hidden" value="0.057" name="plan_percent">
-                                     <input type="hidden" value="5.7%" name="plan_percentage">
+                                    <input type="hidden" value="0.399" name="plan_percent">
+                                     <input type="hidden" value="39.9%" name="plan_percentage">
                                         <h5 class="text-dark">Amount to invest:</h5>
-                                    <input type="number" min="1010000" max="10000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field5"> <br>
+                                    <input type="number" min="15000000" max="50000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field5"> <br>
                                           <select class="form-control text-dark bg-light" id="field6" name="plan_duration"  style="display: none;" required>
                                                         <option value="none" selected>Select Duration of your Real Estate investment</option>
                                                         <option value="1 month">1 month</option>

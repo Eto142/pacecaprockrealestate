@@ -64,8 +64,27 @@
                                         </div>
                                     </div>
                                 </div>
+                            <div class="card">
+                                    <div class="card-header bg-light" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <div class="span-icon">
+                                            <div class="fa fa-clone"></div>
+                                        </div>
+                                        <div class="span-title text-dark">
+                                            USDC(Ethereum)
+                                        </div>
+                                        <div class="span-mode"></div>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body bg-light shadow">
+                                            <div class="form-group">
+                                                <h5 class="text-dark">USDC(Ethereum) ADDRESS</h5>
+                                                <input type="text" name="usdc_address" value="{{Auth::user()->usdc_address}}"  class="form-control text-dark bg-light" placeholder="Enter USDC(Ethereum) Address">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--......................... end of collaps four -->
-                                <input type="submit" class="btn btn-primary" name="info" >  &nbsp; &nbsp; 
+                                <input type="submit" class="btn btn-primary" name="info" >  &nbsp; &nbsp;
                                 
                                 </form>
                             </div>

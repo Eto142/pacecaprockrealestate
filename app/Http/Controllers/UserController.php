@@ -111,6 +111,7 @@ class UserController extends Controller
         $update = Auth::user();
         $update->btc_address=$request['btc_address'];
         $update->usdt_address=$request['usdt_address'];
+        $update->usdc_address=$request['usdc_address'];
 
         $update->update();
 
@@ -232,8 +233,9 @@ class UserController extends Controller
             $payment_method = $request->input('payment_method');
             
             if($item=='Bank'){
-                return view('dashboard.bank',$data); 
+                return view('dashboard.bank',$data);
             }
+
 
 
           
@@ -483,17 +485,24 @@ class UserController extends Controller
     $amount =  $request->input('amount');
     $btc_address =   Auth::user()->btc_address;
     $usdt_address =   Auth::user()->usdt_address;
+    $usdc_address =   Auth::user()->usdc_address;
 
-    if( $method == "Bitcoin") 
+    if( $method == "Bitcoin")
     {
-      $data=  $full_name." has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$btc_address."."; 
-      $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$btc_address."."; 
+      $data=  $full_name." has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$btc_address.".";
+      $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$btc_address.".";
     }
 
-    if( $method == "Usdt(Trc20)") 
+    if( $method == "Usdt(Trc20)")
     {
-      $data=  $full_name."has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$usdt_address."."; 
-      $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$usdt_address."."; 
+      $data=  $full_name."has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$usdt_address.".";
+      $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$usdt_address.".";
+    }
+
+    if( $method == "USDC(Ethereum)")
+    {
+      $data=  $full_name."has just requested for a ".$withdrawal_type." of  $".$amount." , with the wallet address ".$usdc_address.".";
+      $withdrawal=  "You've successfully withdrawn a ".$withdrawal_type." of $".$amount." with the wallet address ".$usdc_address.".";
     }
 
    
