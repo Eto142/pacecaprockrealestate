@@ -16,3 +16,12 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+# Seeders generated from the production snapshot: contain real customer
+# emails, password hashes and per-user financial records. Kept locally only.
+/database/seeders/UserSeeder.php
+/database/seeders/AdminSeeder.php
+/database/seeders/DepositSeeder.php
+/database/seeders/EarningSeeder.php
+/database/seeders/InvestmentSeeder.php
+/database/seeders/WithdrawalSeeder.php

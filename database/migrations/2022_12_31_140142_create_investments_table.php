@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('investments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('email', 250);
             $table->integer('amount');
             $table->string('plan_name');
-            $table->integer('plan_percentage');
+            $table->string('plan_percentage', 100);
             $table->string('plan_duration'); 
             $table->string('status'); 
             $table->string('plan_start'); 

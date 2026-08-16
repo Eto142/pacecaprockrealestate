@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('trcImage');  
-            $table->string('btcImage');
-            $table->string('bank_name');
-            $table->string('account_name');  
-            $table->integer('account_no');
-            $table->integer('routing_no');
-            $table->string('bank_address'); 
-            $table->string('home_address');
+            $table->string('trcImage')->nullable();
+            $table->string('btcImage')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('account_name')->nullable();
+            $table->string('account_no', 250)->nullable();
+            $table->string('routing_no', 250)->nullable();
+            $table->string('bank_address')->nullable();
+            $table->string('home_address')->nullable();
             $table->string('otp_code')->nullable();
             $table->timestamp('otp_expiry')->nullable();
         });
@@ -35,7 +35,18 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['afiliated_by',  'short_description', 'medium']);
+            $table->dropColumn([
+                'trcImage',
+                'btcImage',
+                'bank_name',
+                'account_name',
+                'account_no',
+                'routing_no',
+                'bank_address',
+                'home_address',
+                'otp_code',
+                'otp_expiry',
+            ]);
         });
     }
 };
