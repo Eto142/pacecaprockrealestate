@@ -3,13 +3,11 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Investment;
-use App\Models\Earning;
 use App\Mail\earningEmail;
 use App\Mail\releaseEmail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Auth;
 
 class CalculateROI extends Command
 {
@@ -34,72 +32,85 @@ class CalculateROI extends Command
      */
     public function handle()
     {
-       
-            // Retrieve the users who need their investment topped up
-            $activeInvestments = DB::table('investments')
-            ->where('status', '==', 'Active')
-            ->where('plan_start', '<', 'plan_end')
+        $today = date('Y-m-d');
+        $paid = 0;
+        $skipped = 0;
+
+        // Investments that are still running: active, started, and not yet past
+        // their end date. These earn one payout per day.
+        $activeInvestments = DB::table('investments')
+            ->where('status', 'Active')
+            ->where('plan_start', '<=', $today)
+            ->where('plan_end', '>=', $today)
             ->get();
 
         foreach ($activeInvestments as $investment) {
+            // Guard against a double payout if the command is run more than
+            // once in a day (a manual run, or a catch-up after downtime).
+            $alreadyPaidToday = DB::table('earnings')
+                ->where('user_id', $investment->user_id)
+                ->where('description', $investment->plan_name)
+                ->whereDate('created_at', $today)
+                ->exists();
 
-            
-        
+            if ($alreadyPaidToday) {
+                $skipped++;
 
-           $dailyReturn = $investment->amount * $investment->plan_percentage;
+                continue;
+            }
 
+            $dailyReturn = $investment->amount * $investment->plan_percentage;
 
+            // insert profit into earnings table
+            DB::table('earnings')->insert([
+                'user_id' => $investment->user_id,
+                'capital' => $investment->amount,
+                'return' => $dailyReturn,
+                'description' => $investment->plan_name,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
 
-                   // insert profit into earnings table
-        DB::table('earnings')->insert([
-            'user_id' => $investment->user_id,
-            'capital' => $investment->amount,
-            'return' => $dailyReturn,
-            'description' => $investment->plan_name,
-            'created_at'=>now(),
-            'updated_at'=>now(),
-        ]);
+            $paid++;
 
-        $email = $investment->email;  
-        $data= "Your ".$investment->plan_name." contract has generated ROI of $".$dailyReturn." which has been successfully credited into your account.";
-            
-            
+            $data = "Your ".$investment->plan_name." contract has generated ROI of $".$dailyReturn." which has been successfully credited into your account.";
 
-            // Send an email confirmation
-            Mail::to($email)->send(new earningEmail($data));
+            // Send an email confirmation. A mail failure must not stop the
+            // remaining investors from being paid.
+            try {
+                Mail::to($investment->email)->send(new earningEmail($data));
+            } catch (\Throwable $e) {
+                Log::error('ROI email failed for investment '.$investment->id.': '.$e->getMessage());
+            }
+        }
 
-        
-    }
-
-        // Retrieve the users who have reached the end of their top-up period
-        $inactiveInvestments = DB::table('investments')
-            ->where('plan_end', '==', date('Y-m-d'))
+        // Investments that have reached the end of their term. Filtering on
+        // Active keeps this idempotent, and using <= catches any that ended
+        // while the scheduler was down.
+        $maturedInvestments = DB::table('investments')
+            ->where('status', 'Active')
+            ->where('plan_end', '<=', $today)
             ->get();
 
-        foreach ($inactiveInvestments as $user) {
+        foreach ($maturedInvestments as $investment) {
             // Stop topping up the user's investment
             DB::table('investments')
-                ->where('id', $user->id)
+                ->where('id', $investment->id)
                 ->update([
                     'status' => 'Expired',
                 ]);
 
-               
-                $email = $user->email;  
-                $data= "Capital release for ".$user->plan_name."that expired on".$user->plan_end."Thanks.";
-            
-            // Send an email confirmation
-            Mail::to($email)->send(new releaseEmail($data));
+            $data = "Capital release for ".$investment->plan_name." that expired on ".$investment->plan_end.". Thanks.";
+
+            try {
+                Mail::to($investment->email)->send(new releaseEmail($data));
+            } catch (\Throwable $e) {
+                Log::error('Release email failed for investment '.$investment->id.': '.$e->getMessage());
+            }
         }
+
+        $this->info('ROI run complete: '.$paid.' paid, '.$skipped.' already paid today, '.$maturedInvestments->count().' expired.');
+
+        return 0;
     }
-
-
 }
-
-
-
-
-
-
-            
-

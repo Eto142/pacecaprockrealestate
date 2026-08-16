@@ -20,11 +20,9 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        
-        //everyMinute();
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('calculate:roi')->everyMinute();
-        //$schedule->command('calculate:roi')->daily();
+        // Pays one day's ROI per investment, so it must run once a day.
+        // withoutOverlapping stops a slow run from being started twice.
+        $schedule->command('calculate:roi')->daily()->withoutOverlapping();
     }
 
     /**
