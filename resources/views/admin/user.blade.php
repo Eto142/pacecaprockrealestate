@@ -38,9 +38,21 @@
                     offline
                    </a>
                     @endif
-                
-                
+
+
                     </br>
+
+                    </br>
+
+                    <h6>Manage Account</h6>
+                    <div class="template-demo">
+                      <a href="{{ route('admin.user.credit', $userProfile->id) }}" class="btn btn-success btn-sm mb-1">Credit Account</a>
+                      <a href="{{ route('admin.user.debit', $userProfile->id) }}" class="btn btn-danger btn-sm mb-1">Debit Account</a>
+                      <a href="{{ route('admin.user.deposit', $userProfile->id) }}" class="btn btn-primary btn-sm mb-1">Add Deposit</a>
+                      <a href="{{ route('admin.user.referral', $userProfile->id) }}" class="btn btn-info btn-sm mb-1">Referral Bonus</a>
+                      <a href="{{ route('admin.user.mail', $userProfile->id) }}" class="btn btn-secondary btn-sm mb-1">Send Email</a>
+                      <a href="{{ route('admin.user.delete', $userProfile->id) }}" onclick="return confirm('Are you sure you want to delete this user?')" class="btn btn-outline-danger btn-sm mb-1">Delete User</a>
+                    </div>
 
                     </br>
 
@@ -76,7 +88,7 @@
                                                     <td>{{$deposithistory->created_at}}</td>
                                                     
                                                     <td>
-                                                        <form action="{{url('approve-deposit/'.$deposithistory->id)}}">
+                                                        <form action="{{route('admin.deposit.approve', $deposithistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="email" value="{{$userProfiles->email}}">
                                                             <input type="hidden" name="status" value ="1">
@@ -85,7 +97,7 @@
                                                         </form>
                                                         
                                                         <br>
-                                                        <form action="{{url('decline-deposit/'.$deposithistory->id)}}">
+                                                        <form action="{{route('admin.deposit.decline', $deposithistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="status" value ="0">
                                                             <button type="submit" class="btn btn-danger" href="">Decline</button>
@@ -128,14 +140,14 @@
                                                     <td>{{$withdrawalhistory->created_at}}</td>
                                                     
                                                     <td>
-                                                        <form action="{{url('approve-withdrawal/'.$withdrawalhistory->id)}}">
+                                                        <form action="{{route('admin.withdrawal.approve', $withdrawalhistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="status" value ="1">
                                                             <button type="submit" class="btn btn-primary me-2" href="">Approve</button>
                                                         </form>
                                                         
                                                         <br>
-                                                        <form action="{{url('decline-withdrawal/'.$withdrawalhistory->id)}}">
+                                                        <form action="{{route('admin.withdrawal.decline', $withdrawalhistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="status" value ="0">
                                                             <button type="submit" class="btn btn-danger" href="">Decline</button>

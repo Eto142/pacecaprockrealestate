@@ -67,14 +67,14 @@
                                                     <td>{{$deposithistory->created_at}}</td>
                                                     
                                                     <td>
-                                                        <form action="{{url('approve-deposit/'.$deposithistory->id)}}">
+                                                        <form action="{{route('admin.deposit.approve', $deposithistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="status" value ="1">
                                                             <button type="submit" class="btn btn-primary me-2" href="">Approve</button>
                                                         </form>
                                                         
                                                         <br>
-                                                        <form action="{{url('decline-deposit/'.$deposithistory->id)}}">
+                                                        <form action="{{route('admin.deposit.decline', $deposithistory->id)}}">
                                                             @csrf
                                                             <input type="hidden" name="status" value ="0">
                                                             <button type="submit" class="btn btn-danger" href="">Decline</button>

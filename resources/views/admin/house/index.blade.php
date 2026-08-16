@@ -10,7 +10,7 @@
               <div class="card">
                 <div class="card-header">
                     <h3>Houses
-                        <a href="{{ url('house/create')}}"class="btn btn-primary text-white btn-sm float-end">
+                        <a href="{{ route('admin.houses.create')}}"class="btn btn-primary text-white btn-sm float-end">
                            Add New Houses
 
                         </a>
@@ -43,8 +43,8 @@
                                      <td>{{$house->status}}</td>
                                     
                                     <td>
-                                        <a href="{{url('/house/'.$house->id.'/edit')}}" class="btn btn-sm btn-success">VIEW</a>
-                                    <a href="{{url('/house/'.$house->id.'/delete')}}" onclick ="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">
+                                        <a href="{{route('admin.houses.edit', $house->id)}}" class="btn btn-sm btn-success">VIEW</a>
+                                    <a href="{{route('admin.houses.delete', $house->id)}}" onclick ="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">
                                     Delete
                                        </a>
                                     </td>

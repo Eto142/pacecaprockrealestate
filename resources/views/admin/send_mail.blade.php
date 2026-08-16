@@ -13,7 +13,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Send {{$userProfile->name}} Email</h4>
-                  <form method="post" action="{{url('/send-user-email')}}">
+                  <form method="post" action="{{route('admin.mail.send')}}">
                                     @csrf
                     <div class="form-group">
                       <label for="exampleInputEmail3">Email</label>

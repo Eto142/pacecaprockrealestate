@@ -74,58 +74,11 @@ Route::get('/logout', function () {
 
 
 
-// manger user details from admin
-Route::get('/users','App\Http\Controllers\UserManagementController@viewUser');
-Route::get('/profile/{id}/','App\Http\Controllers\UserManagementController@userProfile');
-Route::get('/approve-deposit/{id}/','App\Http\Controllers\UserManagementController@ApproveDeposit');
-Route::get('/decline-deposit/{id}/','App\Http\Controllers\UserManagementController@DeclineDeposit');
-Route::get('/approve-kyc/{id}/','App\Http\Controllers\UserManagementController@ApproveKyc');
-Route::get('/decline-kyc/{id}/','App\Http\Controllers\UserManagementController@DeclineKyc');
-Route::get('/approve-withdrawal/{id}/','App\Http\Controllers\UserManagementController@ApproveWithdrawal');
-Route::get('/decline-withdrawal/{id}/','App\Http\Controllers\UserManagementController@DeclineWithdrawal');
-Route::get('/add-profit/{id}/','App\Http\Controllers\UserManagementController@getUserProfit');
-Route::post('/debit-profit','App\Http\Controllers\UserManagementController@debitUserProfit');
-Route::get('/debit-profit/{id}/','App\Http\Controllers\UserManagementController@getDebitProfit');
-Route::post('/add-profit','App\Http\Controllers\UserManagementController@addUserProfit');
-Route::get('/add-deposit/{id}/','App\Http\Controllers\UserManagementController@getUserDeposit');
-Route::post('/add-deposit','App\Http\Controllers\UserManagementController@addUserDeposit');
-Route::get('/add-referral/{id}/','App\Http\Controllers\UserManagementController@getUserReferral');
-Route::post('/add-referral','App\Http\Controllers\UserManagementController@addUserReferral');
-Route::get('/total-deposits','App\Http\Controllers\UserManagementController@usersDeposit');
-Route::get('/total-withdrawals','App\Http\Controllers\UserManagementController@usersWithdrawals');
-Route::get('/total-profits','App\Http\Controllers\UserManagementController@usersProfit');
-Route::get('/update-wallet','App\Http\Controllers\UserManagementController@updateWallet')->name('wallet');
-Route::post('/choose-wallet','App\Http\Controllers\UserManagementController@chooseWallet')->name('choose-wallet');
-Route::post('/update-trc','App\Http\Controllers\UserManagementController@updateTrc')->name('update-trc');
-Route::post('/update-btc','App\Http\Controllers\UserManagementController@updateBtc')->name('update-btc');
-Route::post('/update-usdc','App\Http\Controllers\UserManagementController@updateUsdc')->name('update-usdc');
-Route::post('/update-eth','App\Http\Controllers\UserManagementController@updateEth')->name('update-eth');
-Route::post('/update-bank','App\Http\Controllers\UserManagementController@updateBank')->name('update-bank');
-Route::get('/send-mail','App\Http\Controllers\UserManagementController@sendTestMail');
-Route::get('/send-mail/{id}/','App\Http\Controllers\UserManagementController@sendMail');
-Route::post('/send-user-email','App\Http\Controllers\UserManagementController@sendUserEmail');
-Route::get('/delete/{id}','App\Http\Controllers\UserManagementController@deleteUser');
-
-
-// real estate details
-
-// manger houses from admin
-//country
-Route::get('/country','App\Http\Controllers\CountryController@index');
-Route::get('/countries/create','App\Http\Controllers\CountryController@create');
-Route::post('/add-country', 'App\Http\Controllers\CountryController@createCountry');
-Route::get('/country/{id}/delete', 'App\Http\Controllers\CountryController@destroy');
-
-//houses
-Route::get('/houses','App\Http\Controllers\HouseController@index');
-Route::get('/house/create','App\Http\Controllers\HouseController@create');
-Route::post('/add/house','App\Http\Controllers\HouseController@add');
-Route::get('/house/{house_id}/edit', 'App\Http\Controllers\HouseController@editHouse');
-Route::put('/house/{house}', 'App\Http\Controllers\HouseController@update');
-Route::get('/houses-image/{house_image_id}/delete', 'App\Http\Controllers\HouseController@destroyImage');
-Route::get('/house/{house_id}/delete', 'App\Http\Controllers\HouseController@destroy');
-
 // Admin Routes
+//
+// Everything the administrator can reach lives under /admin and behind the
+// 'admin' guard. Nothing in this group is reachable by a signed-in customer or
+// by an anonymous visitor.
 Route::prefix('admin')->name('admin.')->group(function () {
     // Guest routes (not authenticated)
     Route::middleware('guest:admin')->group(function () {
@@ -137,5 +90,62 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::get('/dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->name('dashboard');
         Route::post('/logout', 'App\Http\Controllers\Admin\Auth\LoginController@logout')->name('logout');
+
+        // Users
+        Route::get('/users', 'App\Http\Controllers\UserManagementController@viewUser')->name('users');
+        Route::get('/users/{id}', 'App\Http\Controllers\UserManagementController@userProfile')->name('user.profile');
+        Route::get('/users/{id}/delete', 'App\Http\Controllers\UserManagementController@deleteUser')->name('user.delete');
+
+        // Funding a user account
+        Route::get('/users/{id}/credit', 'App\Http\Controllers\UserManagementController@getUserProfit')->name('user.credit');
+        Route::post('/users/credit', 'App\Http\Controllers\UserManagementController@addUserProfit')->name('user.credit.store');
+        Route::get('/users/{id}/debit', 'App\Http\Controllers\UserManagementController@getDebitProfit')->name('user.debit');
+        Route::post('/users/debit', 'App\Http\Controllers\UserManagementController@debitUserProfit')->name('user.debit.store');
+        Route::get('/users/{id}/deposit', 'App\Http\Controllers\UserManagementController@getUserDeposit')->name('user.deposit');
+        Route::post('/users/deposit', 'App\Http\Controllers\UserManagementController@addUserDeposit')->name('user.deposit.store');
+        Route::get('/users/{id}/referral', 'App\Http\Controllers\UserManagementController@getUserReferral')->name('user.referral');
+        Route::post('/users/referral', 'App\Http\Controllers\UserManagementController@addUserReferral')->name('user.referral.store');
+
+        // Approvals
+        Route::get('/deposits/{id}/approve', 'App\Http\Controllers\UserManagementController@approveDeposit')->name('deposit.approve');
+        Route::get('/deposits/{id}/decline', 'App\Http\Controllers\UserManagementController@DeclineDeposit')->name('deposit.decline');
+        Route::get('/withdrawals/{id}/approve', 'App\Http\Controllers\UserManagementController@approveWithdrawal')->name('withdrawal.approve');
+        Route::get('/withdrawals/{id}/decline', 'App\Http\Controllers\UserManagementController@DeclineWithdrawal')->name('withdrawal.decline');
+        Route::get('/kyc/{id}/approve', 'App\Http\Controllers\UserManagementController@ApproveKyc')->name('kyc.approve');
+        Route::get('/kyc/{id}/decline', 'App\Http\Controllers\UserManagementController@DeclineKyc')->name('kyc.decline');
+
+        // Reports
+        Route::get('/total-deposits', 'App\Http\Controllers\UserManagementController@usersDeposit')->name('deposits');
+        Route::get('/total-withdrawals', 'App\Http\Controllers\UserManagementController@usersWithdrawals')->name('withdrawals');
+        Route::get('/total-profits', 'App\Http\Controllers\UserManagementController@usersProfit')->name('profits');
+
+        // Deposit wallet settings
+        Route::get('/wallet', 'App\Http\Controllers\UserManagementController@updateWallet')->name('wallet');
+        Route::post('/wallet/choose', 'App\Http\Controllers\UserManagementController@chooseWallet')->name('choose-wallet');
+        Route::post('/wallet/trc', 'App\Http\Controllers\UserManagementController@updateTrc')->name('update-trc');
+        Route::post('/wallet/btc', 'App\Http\Controllers\UserManagementController@updateBtc')->name('update-btc');
+        Route::post('/wallet/usdc', 'App\Http\Controllers\UserManagementController@updateUsdc')->name('update-usdc');
+        Route::post('/wallet/eth', 'App\Http\Controllers\UserManagementController@updateEth')->name('update-eth');
+        Route::post('/wallet/bank', 'App\Http\Controllers\UserManagementController@updateBank')->name('update-bank');
+
+        // Mail
+        Route::get('/mail', 'App\Http\Controllers\UserManagementController@sendTestMail')->name('mail');
+        Route::get('/users/{id}/mail', 'App\Http\Controllers\UserManagementController@sendMail')->name('user.mail');
+        Route::post('/mail/send', 'App\Http\Controllers\UserManagementController@sendUserEmail')->name('mail.send');
+
+        // Countries
+        Route::get('/countries', 'App\Http\Controllers\CountryController@index')->name('countries');
+        Route::get('/countries/create', 'App\Http\Controllers\CountryController@create')->name('countries.create');
+        Route::post('/countries', 'App\Http\Controllers\CountryController@createCountry')->name('countries.store');
+        Route::get('/countries/{id}/delete', 'App\Http\Controllers\CountryController@destroy')->name('countries.delete');
+
+        // Houses
+        Route::get('/houses', 'App\Http\Controllers\HouseController@index')->name('houses');
+        Route::get('/houses/create', 'App\Http\Controllers\HouseController@create')->name('houses.create');
+        Route::post('/houses', 'App\Http\Controllers\HouseController@add')->name('houses.store');
+        Route::get('/houses/{house_id}/edit', 'App\Http\Controllers\HouseController@editHouse')->name('houses.edit');
+        Route::put('/houses/{house}', 'App\Http\Controllers\HouseController@update')->name('houses.update');
+        Route::get('/houses/{house_id}/delete', 'App\Http\Controllers\HouseController@destroy')->name('houses.delete');
+        Route::get('/house-images/{house_image_id}/delete', 'App\Http\Controllers\HouseController@destroyImage')->name('houses.image.delete');
     });
 });

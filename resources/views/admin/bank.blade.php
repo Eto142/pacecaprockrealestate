@@ -22,7 +22,7 @@
                 <h1 class="h4 text-gray-900 mb-4"><i class="fa fa-bank"></i>{{ $page_title }}</h1>
               </div>
               
-              <form action ="{{route('update-bank')}}" method ="POST">
+              <form action ="{{route('admin.update-bank')}}" method ="POST">
                              @csrf	
                    
                                                   

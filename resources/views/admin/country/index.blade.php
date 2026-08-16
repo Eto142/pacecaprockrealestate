@@ -10,7 +10,7 @@
               <div class="card">
                 <div class="card-header">
                     <h3>Countries
-                        <a href="{{ url('/countries/create')}}"class="btn btn-primary text-white btn-sm float-end">
+                        <a href="{{ route('admin.countries.create')}}"class="btn btn-primary text-white btn-sm float-end">
                            Add New Country
 
                         </a>
@@ -30,10 +30,7 @@
                                     <td>{{ $country->id }}</td>
                                     <td>{{ $country->country}}</td>
                                     <td>
-                                    <a href="{{url('country/'.$country->id.'/delete')}}" class="btn btn-sm btn-primary">
-                                    Edit
-                                       </a>
-                                    <a href="{{url('country/'.$country->id.'/delete')}}" onclick ="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">
+                                    <a href="{{route('admin.countries.delete', $country->id)}}" onclick ="return confirm('Are you sure, you want to delete?')" class="btn btn-sm btn-danger">
                                     Delete
                                        </a>
                                     </td>

@@ -34,7 +34,7 @@
                                 <td>{{$users->name}}</td>
                                 <td>{{$users->email}}</td>
                                     <td>
-                                    <a type="submit" class="btn btn-primary" href="{{url('profile/'.$users->id)}}">View</a>
+                                    <a type="submit" class="btn btn-primary" href="{{route('admin.user.profile', $users->id)}}">View</a>
                     <a type="submit" class="btn btn-success" href="{{url('send-mail/'.$users->id)}}">Send Mail</a>
                     <a type="submit" class="btn btn-danger" href="{{url('delete/'.$users->id)}}" onclick ="return confirm('Are you sure, you want to delete?')">Delete User</a>
                                     </td>

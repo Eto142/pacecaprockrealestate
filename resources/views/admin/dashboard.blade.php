@@ -77,7 +77,7 @@
         <div class="card h-100">
             <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
                 <h6 class="m-0 font-weight-bold">Recent Registrations</h6>
-                <a href="{{ url('/home') }}" class="btn btn-sm btn-primary">View All</a>
+                <a href="{{ route('admin.users') }}" class="btn btn-sm btn-primary">View All</a>
             </div>
             <div class="card-body px-0 pt-0">
                 <div class="table-responsive">

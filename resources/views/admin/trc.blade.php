@@ -23,7 +23,7 @@
                 <h1 class="h4 text-gray-900 mb-4">update your Trc wallets</h1>
               </div>
 
-              <form method="post" action="{{route('update-trc')}}" enctype="multipart/form-data">
+              <form method="post" action="{{route('admin.update-trc')}}" enctype="multipart/form-data">
                                      @csrf
 
                     <div class="form-group">

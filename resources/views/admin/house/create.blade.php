@@ -10,7 +10,7 @@
               <div class="card">
                 <div class="card-header">
                     <h3>Add A House
-                        <a href="{{ url('/houses')}}"class="btn btn-primary text-white btn-sm float-end">Back</a>
+                        <a href="{{ route('admin.houses')}}"class="btn btn-primary text-white btn-sm float-end">Back</a>
                     </h3>
                     <div class = "card-body">
                         @if ($errors->any())
@@ -20,7 +20,7 @@
                             @endforeach
                         </div>
                         @endif
-                        <form action ="{{ url('add/house')}}" method ="POST" enctype="multipart/form-data">
+                        <form action ="{{ route('admin.houses.store')}}" method ="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                             <div class="col-md-12 mb-3">

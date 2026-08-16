@@ -10,7 +10,7 @@
               <div class="card">
                 <div class="card-header">
                     <h3>Edit House
-                        <a href="{{ url('/houses')}}"class="btn btn-primary text-white btn-sm float-end">Back</a>
+                        <a href="{{ route('admin.houses')}}"class="btn btn-primary text-white btn-sm float-end">Back</a>
                     </h3>
                     <div class = "card-body">
 
@@ -21,7 +21,7 @@
                             @endforeach
                         </div>
                         @endif
-                        <form action ="{{url('/house/'.$house->id)}}" method ="POST" enctype="multipart/form-data">
+                        <form action ="{{route('admin.houses.update', $house->id)}}" method ="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row">
@@ -63,7 +63,7 @@
                                 @foreach($house->houseImages as $image)
                                     <div class="col-md-2">
                                     <img src="{{asset($image->image)}}" alt="" style = "width:100px; height:80px" class="me-4 border" alt ="Img"/>
-                                <a href="{{url('/houses-image/'.$image->id.'/delete')}}" class="d-block">Remove</a>
+                                <a href="{{route('admin.houses.image.delete', $image->id)}}" class="d-block">Remove</a>
                                     </div>
                                     @endforeach
                                 </div>

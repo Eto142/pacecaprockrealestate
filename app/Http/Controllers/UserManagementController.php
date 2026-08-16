@@ -9,8 +9,6 @@ use App\Models\Deposit;
 use App\Models\Withdrawal;
 use App\Models\Earning;
 use App\Models\User;
-use App\Models\Refferal;
-use App\Models\Profit;
 use App\Models\Debitprofit;
 use App\Models\Bank;
 use App\Models\Admin;
@@ -24,19 +22,22 @@ class UserManagementController extends Controller
 
 
 
+    /**
+     * The public deposit page reads the site's wallet addresses from the
+     * administrator's user row, so that is the row the wallet screens write to.
+     */
+    private function depositWalletOwner()
+    {
+        return User::where('usertype', '1')->orderBy('id')->firstOrFail();
+    }
+
     public function viewUser(){
 
-        if(Auth::user()->usertype=='1')
-        {
-            $result      = DB::table('users')->where('usertype','0')->get();
-            return view('admin.users',compact('result'));
-        }
-        else
-        {
-            return redirect()->route('home');
-        }
+        // Access is enforced by the 'auth:admin' middleware on the route group,
+        // so there is no need to inspect the web guard here.
+        $result = DB::table('users')->where('usertype','0')->get();
 
-
+        return view('admin.users',compact('result'));
     }
 
     public function usersDeposit(){
@@ -88,7 +89,8 @@ class UserManagementController extends Controller
               $totalEarning      = DB::table('earnings')->where('user_id',$id)->sum('return');
               $totalInvestment      = DB::table('investments')->where('user_id',$id)->sum('amount');
               $totalWithdrawal      = DB::table('withdrawals')->where('user_id',$id)->sum('amount');
-              $totalProfit =  $totalDeposit +$totalEarning  - $totalWithdrawal- $totalInvestment;
+              $totalDebit        = DB::table('debitprofits')->where('user_id',$id)->sum('amount');
+              $totalProfit =  $totalDeposit +$totalEarning  - $totalWithdrawal- $totalInvestment - $totalDebit;
 
             
 
@@ -160,19 +162,23 @@ class UserManagementController extends Controller
 
     public function addUserProfit(Request $request)
     {
-        // $validate->validate($request,[
-        //     'subject' => 'required',
-        //     'message' => 'required'
-        // ]);
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'amount' => 'required|numeric|min:0.01',
+            'plan_name' => 'required|string|max:255',
+        ]);
 
-        $topUp = new Profit;
-        $topUp->user_id = $request['user_id'];
-        $topUp->plan_name=$request['plan_name'];
-        $topUp->amount=$request['amount'];
-        $topUp->plan_type=$request['plan_type'];
+        // Credits land in `earnings`, which is the table the balance is
+        // calculated from, so the money shows up on the user's account.
+        Earning::create([
+            'user_id' => $data['user_id'],
+            'capital' => 0,
+            'return' => $data['amount'],
+            'description' => $data['plan_name'],
+        ]);
 
-          $topUp->save();
-          return redirect()->back()->with('message', 'User Profit Topped Up Successfully');  
+        return redirect()->route('admin.user.profile', $data['user_id'])
+            ->with('message', 'User account credited with $'.number_format($data['amount'], 2));
     }
 
 
@@ -190,17 +196,18 @@ class UserManagementController extends Controller
 
     public function debitUserProfit(Request $request)
     {
-        // $validate->validate($request,[
-        //     'subject' => 'required',
-        //     'message' => 'required'
-        // ]);
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'amount' => 'required|numeric|min:0.01',
+        ]);
 
-        $topUp = new Debitprofit;
-        $topUp->user_id = $request['user_id'];
-        $topUp->amount=$request['amount'];
+        Debitprofit::create([
+            'user_id' => $data['user_id'],
+            'amount' => $data['amount'],
+        ]);
 
-          $topUp->save();
-          return redirect()->back()->with('message', 'User Profit Debited Successfully');  
+        return redirect()->route('admin.user.profile', $data['user_id'])
+            ->with('message', 'User account debited by $'.number_format($data['amount'], 2));
     }
 
     public function getUserDeposit($id)
@@ -218,20 +225,25 @@ class UserManagementController extends Controller
 
     public function addUserDeposit(Request $request)
     {
-        // $validate->validate($request,[
-        //     'subject' => 'required',
-        //     'message' => 'required'
-        // ]);
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'payment_method' => 'required|string|max:255',
+            'amount' => 'required|numeric|min:0.01',
+            'deposit_date' => 'nullable|date',
+        ]);
 
-        $topUp = new Deposit;
-        $topUp->user_id = $request['user_id'];
-        $topUp->payment_method = $request['payment_method'];
-        $topUp->amount=$request['amount'];
-        $topUp->status=1;
-        $topUp->created_at=$request['deposit_date'];
+        $deposit = new Deposit;
+        $deposit->user_id = $data['user_id'];
+        $deposit->payment_method = $data['payment_method'];
+        $deposit->amount = $data['amount'];
+        $deposit->proof = 'added-by-admin';
+        $deposit->status = 1;
+        $deposit->created_at = $data['deposit_date'] ?? now();
+        $deposit->updated_at = now();
+        $deposit->save();
 
-          $topUp->save();
-          return redirect()->back()->with('message', 'User Deposit Added Successfully');  
+        return redirect()->route('admin.user.profile', $data['user_id'])
+            ->with('message', 'Approved deposit of $'.number_format($data['amount'], 2).' added');
     }
 
     public function getUserReferral($id)
@@ -248,17 +260,20 @@ class UserManagementController extends Controller
 
     public function addUserReferral(Request $request)
     {
-        // $validate->validate($request,[
-        //     'subject' => 'required',
-        //     'message' => 'required'
-        // ]);
+        $data = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'amount' => 'required|numeric|min:0.01',
+        ]);
 
-        $topUp = new Refferal;
-        $topUp->user_id = $request['user_id'];
-        $topUp->amount=$request['amount'];
+        Earning::create([
+            'user_id' => $data['user_id'],
+            'capital' => 0,
+            'return' => $data['amount'],
+            'description' => 'Referral Bonus',
+        ]);
 
-          $topUp->save();
-          return redirect()->back()->with('message', 'User Referral Bonus Added Successfully');  
+        return redirect()->route('admin.user.profile', $data['user_id'])
+            ->with('message', 'Referral bonus of $'.number_format($data['amount'], 2).' added');
     }
 
 
@@ -312,7 +327,7 @@ class UserManagementController extends Controller
     {
 
 
-        $update = Auth::user();
+        $update = $this->depositWalletOwner();
         $update->usdt_address=$request['usdt_address'];
         if($request->hasFile('image')){
             $file= $request->file('image');
@@ -324,14 +339,14 @@ class UserManagementController extends Controller
           }
 
           $update->save();
-          return redirect('update-wallet')->with('status', 'Trc Details Updated Successfully');  
+          return redirect()->route('admin.wallet')->with('status', 'Trc Details Updated Successfully');  
     }
 
     public function updateBtc(Request $request)
     {
 
 
-        $update = Auth::user();
+        $update = $this->depositWalletOwner();
         $update->btc_address=$request['btc_address'];
         if($request->hasFile('image')){
             $file= $request->file('image');
@@ -343,14 +358,33 @@ class UserManagementController extends Controller
           }
 
           $update->save();
-          return redirect('update-wallet')->with('status', 'Btc Details Updated Successfully');  
+          return redirect()->route('admin.wallet')->with('status', 'Btc Details Updated Successfully');  
+    }
+
+    public function updateEth(Request $request)
+    {
+
+
+        $update = $this->depositWalletOwner();
+        $update->eth_address=$request['eth_address'];
+        if($request->hasFile('image')){
+            $file= $request->file('image');
+
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('admin/uploads/admin',$filename);
+            $update->ethImage =  $filename;
+          }
+
+          $update->save();
+          return redirect()->route('admin.wallet')->with('status', 'Eth Details Updated Successfully');
     }
 
     public function updateUsdc(Request $request)
     {
 
 
-        $update = Auth::user();
+        $update = $this->depositWalletOwner();
         $update->usdc_address=$request['usdc_address'];
         if($request->hasFile('image')){
             $file= $request->file('image');
@@ -362,13 +396,13 @@ class UserManagementController extends Controller
           }
 
           $update->save();
-          return redirect('update-wallet')->with('status', 'USDC Details Updated Successfully');
+          return redirect()->route('admin.wallet')->with('status', 'USDC Details Updated Successfully');
     }
 
     public function updateBank(Request $request)
     {
 
-        $update = Auth::user();
+        $update = $this->depositWalletOwner();
         $update['bank_name'] = $request->bank_name;
         $update['account_name'] = $request->account_name;
         $update['account_no'] = $request->account_no;
@@ -378,7 +412,7 @@ class UserManagementController extends Controller
         $update->update();
 
         
-        return redirect('update-wallet')->with('status', 'Bank Details Updated Successfully');  
+        return redirect()->route('admin.wallet')->with('status', 'Bank Details Updated Successfully');  
     }
 
 

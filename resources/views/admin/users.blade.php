@@ -20,7 +20,7 @@
                 <td>{{ $users->name }}</td>
                 <td>{{ $users->email }}</td>
                 <td>
-                  <a class="btn btn-danger btn-sm" href="{{ url('profile/'.$users->id) }}">View</a>
+                  <a class="btn btn-danger btn-sm" href="{{ route('admin.user.profile', $users->id) }}">View</a>
                 </td>
               </tr>
               @endforeach
