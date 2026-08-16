@@ -50,7 +50,7 @@
                                 <h4 style="color: blueviolet;">Pays 13.5% daily</h4>
                                 <!-- Features -->
                                 <div class="pricing-features">
-                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$10,000.00</span></div>
+                                    <div  class="featured text-dark">Minimum  Deposit:<span class="text-dark">$150,000.00</span></div>
                                     <div class="featured text-dark">Maximum  Deposit:<span  class="text-dark">$1,000,000.00</span></div>
                                 </div> <br>
                                 <!-- Button -->
@@ -61,7 +61,7 @@
                                     <input type="hidden" value="0.135" name="plan_percent">
                                      <input type="hidden" value="13.5%" name="plan_percentage">
                                     <h5 class="text-dark">Amount to invest:</h5>
-                                    <input type="number" min="10000" max="1000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field1"> <br>
+                                    <input type="number" min="150000" max="1000000" name="amount" placeholder="Amount" class="form-control text-dark bg-light" required id="field1"> <br>
                                           <select class="form-control text-dark bg-light" id="field2" name="plan_duration"  style="display: none;" required>
                                                         <option value="none" selected>Select Duration of your Real Estate investment</option>
                                                         <option value="1 month">1 month</option>
